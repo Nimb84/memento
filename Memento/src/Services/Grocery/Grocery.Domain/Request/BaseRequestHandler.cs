@@ -1,35 +1,30 @@
-﻿using Grocery.Domain.Response;
+﻿using FluentValidation;
+using Grocery.Domain.Response;
 using MediatR;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Grocery.Domain.Request
 {
-	public class BaseRequestHandlerr<TRequest, TResponse> : IRequestHandler<TRequest, BaseResponse<TResponse>>
-			where TRequest : IRequest<ChatServiceResponse<TResponse>>
-	{
-	}
-
-	public sealed class ChatServiceRequestHandler<TRequest, TResponse> : IRequestHandler<TRequest, ChatServiceResponse<TResponse>>
-			where TRequest : IRequest<ChatServiceResponse<TResponse>>
+	public sealed class BaseRequestHandler<TRequest, TResponse> : IRequestHandler<TRequest, BaseResponse<TResponse>>
+		where TRequest : IRequest<BaseResponse<TResponse>>
 	{
 		private readonly IValidatorFactory _validatorFactory;
-		private readonly IRequestHandler<TRequest, ChatServiceResponse<TResponse>> _inner;
+		private readonly IRequestHandler<TRequest, BaseResponse<TResponse>> _inner;
 
-		public ChatServiceRequestHandler(IValidatorFactory validationFactory, IRequestHandler<TRequest, ChatServiceResponse<TResponse>> inner)
+		public BaseRequestHandler(IValidatorFactory validationFactory, IRequestHandler<TRequest, BaseResponse<TResponse>> inner)
 		{
 			_validatorFactory = validationFactory;
 			_inner = inner;
 		}
 
-		public async Task<ChatServiceResponse<TResponse>> Handle(TRequest request, CancellationToken cancellationToken)
+		public async Task<BaseResponse<TResponse>> Handle(TRequest request, CancellationToken cancellationToken)
 		{
 			var validationResult = await _validatorFactory.GetValidator<TRequest>().ValidateAsync(request, cancellationToken).ConfigureAwait(false);
+
 			if (!validationResult.IsValid)
-			{
-				return GetBadRequest(validationResult.Errors);
-			}
+				return new BaseResponse<TResponse>(validationResult.Errors);
 
 			try
 			{
@@ -37,25 +32,8 @@ namespace Grocery.Domain.Request
 			}
 			catch (Exception error)
 			{
-				return new ChatServiceResponse<TResponse>(error);
+				return new BaseResponse<TResponse>(error);
 			}
 		}
-
-		//public abstract Task<MessageResponse<TResponse>> ChatServiceHandle(TRequest request, CancellationToken cancellationToken);
-
-		private ChatServiceResponse<TResponse> GetBadRequest(IList<ValidationFailure> errors)
-		{
-			var errorList = errors.Select(error => new ChatServiceError
-			{
-				Code = ExceptionType.ValidationException,
-				Description = error.ErrorMessage
-			});
-
-			return new ChatServiceResponse<TResponse>(errorList);
-		}
 	}
-}
-
-
-
 }

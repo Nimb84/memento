@@ -5,4 +5,8 @@
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Grocery.Command\Grocery.Command.csproj" />
+  </ItemGroup>
+
 </Project>

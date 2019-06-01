@@ -1,6 +1,8 @@
-﻿using Grocery.Domain.Exceptions;
+﻿using FluentValidation.Results;
+using Grocery.Domain.Exceptions;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Grocery.Domain.Response
 {
@@ -16,27 +18,19 @@ namespace Grocery.Domain.Response
 			Result = result;
 		}
 
-		public BaseResponse(Exception error) : this(new GroceryDomainException()) { }
+		public BaseResponse(Exception error)
+			: this(new GroceryDomainException()) { }
 
-		public BaseResponse(GroceryDomainException error) : this(new List<GroceryDomainException> { error }) { }
+		public BaseResponse(GroceryDomainException error)
+			: this(new List<GroceryDomainException> { error }) { }
+
+		public BaseResponse(IEnumerable<ValidationFailure> errors) 
+			: this(errors.Select(error => 
+				new GroceryDomainException(error.ErrorMessage, ExceptionType.ValidationException))) { }
 
 		public BaseResponse(IEnumerable<GroceryDomainException> errors)
 		{
-			Success = false;
 			Errors = errors;
 		}
-
-		//// Create bad request if entity does not find;
-		//public BaseResponse(Guid entityId, ExceptionType errorType)
-		//{
-		//    Success = false;
-		//    Errors = new List<ChatServiceError>() {
-		//        new ChatServiceError
-		//        {
-		//            Code = errorType,
-		//            Description = $"Entity {entityId} not found"
-		//        }
-		//    };
-		//}
 	}
 }

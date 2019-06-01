@@ -5,7 +5,7 @@ namespace Grocery.Domain.AggregatesModel.ProductAggregate
 	public class Product
 	{
 		public string Name { get; set; }
-		public string Decription { get; set; }
+		public string Description { get; set; }
 
 		//public ProductType Type { get; set; }
 		//public ProductUnitType UnitType { get; set; }

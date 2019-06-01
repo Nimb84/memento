@@ -7,10 +7,9 @@ namespace Grocery.EFDataAccess.Entity
 	{
 		public Guid MemberId { get; set; }
 		public Guid GroceryListId { get; set; }
+		public AccessLevelType Access { get; set; }
 
 		public virtual Member Member { get; set; }
 		public virtual GroceryList GroceryList { get; set; }
-
-		public AccessLevelType Access { get; set; }
 	}
 }

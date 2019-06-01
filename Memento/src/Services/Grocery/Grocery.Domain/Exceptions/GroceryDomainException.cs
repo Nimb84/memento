@@ -7,7 +7,7 @@ namespace Grocery.Domain.Exceptions
 	/// </summary>
 	public class GroceryDomainException : Exception
 	{
-		public ExceptionType Code { get; set; }
+		public ExceptionType Code { get; }
 
 		public GroceryDomainException(ExceptionType code = ExceptionType.InnerException)
 		{ }

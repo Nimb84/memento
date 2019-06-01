@@ -7,19 +7,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{06B5386F-ECD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{51DD3A2A-A55A-4B38-B864-6F8F1651B748}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{E60B3C52-E217-4393-92D5-2F65201E619C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Grocery", "Grocery", "{A0C93E43-7056-4633-AF85-1AB968B28E18}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grocery.Domain", "src\Services\Grocery\Grocery.Domain\Grocery.Domain.csproj", "{A3E8FB11-98B7-4219-B0DD-E64131EB0CD5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grocery.EFDataAccess", "src\Services\Grocery\Grocery.EFDataAccess\Grocery.EFDataAccess.csproj", "{9B9B054D-1C76-4836-B30B-EC52D065FEA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grocery.Command.Handlers", "src\Services\Grocery\Grocery.Command.Handlers\Grocery.Command.Handlers.csproj", "{728FA859-A6A6-4B7E-A1F3-C858A9FE5503}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grocery.Command.Handlers", "src\Services\Grocery\Grocery.Command.Handlers\Grocery.Command.Handlers.csproj", "{728FA859-A6A6-4B7E-A1F3-C858A9FE5503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grocery.Command", "src\Services\Grocery\Grocery.Command\Grocery.Command.csproj", "{0240993B-D902-44BD-9071-0ED19D3A5F12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grocery.Command", "src\Services\Grocery\Grocery.Command\Grocery.Command.csproj", "{0240993B-D902-44BD-9071-0ED19D3A5F12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grocery.Command.Validators", "src\Services\Grocery\Grocery.Command.Validators\Grocery.Command.Validators.csproj", "{82BBB139-287F-49EA-93FC-D8A5DA7D12E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grocery.Command.Validators", "src\Services\Grocery\Grocery.Command.Validators\Grocery.Command.Validators.csproj", "{82BBB139-287F-49EA-93FC-D8A5DA7D12E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grocery.Bootstrap", "src\Services\Grocery\Grocery.Bootstrap\Grocery.Bootstrap.csproj", "{A31F85E9-FE37-4232-AC9C-28A5D31024D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E7ED87A6-DE72-4B14-B53B-177D4B59D399}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grocery.UnitTests", "src\Services\Grocery\tests\Grocery.UnitTests\Grocery.UnitTests.csproj", "{283F5AA1-DE74-4C78-A896-0408643C4E67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grocery.Api", "src\Services\Grocery\Grocery.Api\Grocery.Api.csproj", "{B44301CF-2F88-4825-BCC6-19C7861559DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,19 +53,34 @@ Global
 		{82BBB139-287F-49EA-93FC-D8A5DA7D12E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82BBB139-287F-49EA-93FC-D8A5DA7D12E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82BBB139-287F-49EA-93FC-D8A5DA7D12E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A31F85E9-FE37-4232-AC9C-28A5D31024D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A31F85E9-FE37-4232-AC9C-28A5D31024D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A31F85E9-FE37-4232-AC9C-28A5D31024D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A31F85E9-FE37-4232-AC9C-28A5D31024D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{283F5AA1-DE74-4C78-A896-0408643C4E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{283F5AA1-DE74-4C78-A896-0408643C4E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{283F5AA1-DE74-4C78-A896-0408643C4E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{283F5AA1-DE74-4C78-A896-0408643C4E67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B44301CF-2F88-4825-BCC6-19C7861559DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B44301CF-2F88-4825-BCC6-19C7861559DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B44301CF-2F88-4825-BCC6-19C7861559DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B44301CF-2F88-4825-BCC6-19C7861559DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{51DD3A2A-A55A-4B38-B864-6F8F1651B748} = {06B5386F-ECD6-4183-B8BF-145D1E1898B5}
-		{E60B3C52-E217-4393-92D5-2F65201E619C} = {06B5386F-ECD6-4183-B8BF-145D1E1898B5}
 		{A0C93E43-7056-4633-AF85-1AB968B28E18} = {51DD3A2A-A55A-4B38-B864-6F8F1651B748}
 		{A3E8FB11-98B7-4219-B0DD-E64131EB0CD5} = {A0C93E43-7056-4633-AF85-1AB968B28E18}
 		{9B9B054D-1C76-4836-B30B-EC52D065FEA6} = {A0C93E43-7056-4633-AF85-1AB968B28E18}
 		{728FA859-A6A6-4B7E-A1F3-C858A9FE5503} = {A0C93E43-7056-4633-AF85-1AB968B28E18}
 		{0240993B-D902-44BD-9071-0ED19D3A5F12} = {A0C93E43-7056-4633-AF85-1AB968B28E18}
 		{82BBB139-287F-49EA-93FC-D8A5DA7D12E0} = {A0C93E43-7056-4633-AF85-1AB968B28E18}
+		{A31F85E9-FE37-4232-AC9C-28A5D31024D8} = {A0C93E43-7056-4633-AF85-1AB968B28E18}
+		{E7ED87A6-DE72-4B14-B53B-177D4B59D399} = {A0C93E43-7056-4633-AF85-1AB968B28E18}
+		{283F5AA1-DE74-4C78-A896-0408643C4E67} = {E7ED87A6-DE72-4B14-B53B-177D4B59D399}
+		{B44301CF-2F88-4825-BCC6-19C7861559DB} = {A0C93E43-7056-4633-AF85-1AB968B28E18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8784B547-C742-4E1C-A6C0-92C302147B78}

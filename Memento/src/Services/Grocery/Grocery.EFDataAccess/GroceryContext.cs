@@ -6,11 +6,11 @@ namespace Grocery.EFDataAccess
 {
 	public class GroceryContext : DbContext
 	{
-		public DbSet<GroceryItem> Messages { get; set; }
-		public DbSet<GroceryList> Rooms { get; set; }
-		public DbSet<Member> Users { get; set; }
-		public DbSet<MemberGroceryList> UnreadMessages { get; set; }
-		public DbSet<Product> UserRooms { get; set; }
+		public DbSet<GroceryItem> GroceryItems { get; set; }
+		public DbSet<GroceryList> GroceryLists { get; set; }
+		public DbSet<Member> Members { get; set; }
+		public DbSet<MemberGroceryList> MemberGroceryList { get; set; }
+		public DbSet<Product> Products { get; set; }
 
 		public GroceryContext() { }
 
